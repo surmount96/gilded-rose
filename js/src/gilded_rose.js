@@ -40,7 +40,8 @@ function update_quality() {
           if (items[i].quality > 0) {
             items[i].quality = items[i].quality/2;
             if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
-              items[i].quality = items[i].quality - 1
+              let item = items[i].quality - 1;
+              items[i].quality = item < 0 ? 0 : item;
             }
           }
         } else {
