@@ -31,6 +31,9 @@ function update_quality() {
         }
       }
     }
+    if (items[i].name.includes('Conjured')) {
+      items[i].quality = Math.round(items[i].quality/2);
+    }
     if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
       items[i].sell_in = items[i].sell_in - 1;
     }
