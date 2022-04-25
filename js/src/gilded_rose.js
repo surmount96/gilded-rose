@@ -39,6 +39,7 @@ function update_quality() {
       if (items[i].name != 'Aged Brie') {
         if (items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
           if (items[i].quality > 0) {
+            items[i].quality = items[i].quality/2;
             if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
               items[i].quality = items[i].quality - 1
             }
