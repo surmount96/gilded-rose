@@ -6,7 +6,7 @@ describe("Gilded Rose", function() {
       update_quality();
     }
     expect(items[0].name).toEqual("Conjured");
-    expect((items[0].quality)).toEqual(0);
+    expect((items[0].quality)).toEqual(1);
   });
 
   it("The Quality of an item is never more than 50", function() {
@@ -60,7 +60,7 @@ describe("Gilded Rose", function() {
     for (var i = 0; i < days; i++) {
       update_quality();
     }
-    expect((items[0].quality)).toEqual(0);
+    expect((items[0].quality)).toEqual(2);
   });
 
 });

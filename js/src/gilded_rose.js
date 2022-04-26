@@ -9,7 +9,7 @@ var items = []
 function update_quality() {
   for (var i = 0; i < items.length; i++) {
     if (items[i].name != 'Aged Brie' && items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
-      if (items[i].quality > 0) {
+      if (items[i].quality > 0 ) {
         if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
           items[i].quality = items[i].quality - 1;
         }
@@ -44,7 +44,8 @@ function update_quality() {
             
             if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
               items[i].quality = Math.round(items[i].quality/2);
-              let item = items[i].quality - 1;
+              //set quality to base zero
+              let item = items[i].quality;
               items[i].quality = item < 0 ? 0 : item;
             }
           }
