@@ -14,16 +14,7 @@
     $('body').append('<input type="text" id="addDay" placeholder="day" /><button id="add">Add</button> <br /><br />');
     $('body').append('<input type="text" id="addName" placeholder="name" /><input type="text" placeholder="sellin" id="addSell" /><input type="text" id="addQuality" placeholder="quality"/><button id="addItem">Add</button>');
     
-    items.push(new Item('+5 Dexterity Vest', 10, 20));
-    items.push(new Item('Aged Brie', 2, 0));
-    items.push(new Item('Elixir of the Mongoose', 5, 7));
-    items.push(new Item('Sulfuras, Hand of Ragnaros', 0, 80));
-    items.push(new Item('Sulfuras, Hand of Ragnaros', -1, 80));
-    items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20));
-    items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 10, 49));
-    items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 5, 49));
-    // this conjured item does not work properly yet
-    items.push(new Item('Conjured Mana Cake', 3, 6));
+    seedItems();
 
     var days = 5;
 
@@ -46,6 +37,11 @@
       let name = $('#addName').val();
       let sellin = $('#addSell').val();
       let quality = $('#addQuality').val();
+      if(!name || !sellin || !quality) {
+        alert('Ensure input is not empty');
+        return ;
+      }
+      seedItems()
       items.push({
         name,
         quality,
@@ -57,8 +53,14 @@
 
     $('#add').click(function() {
       let day = $('#addDay').val();
+      if(!day || typeof day != 'number') {
+        alert('Ensure input is a number and not empty');
+        return ;
+      }
       days = day
       $('.item').remove();
+     
+      seedItems();
       iterateItem();
     })
 
@@ -68,6 +70,20 @@
         showItemsFor(i);
         update_quality();
       }
+    }
+
+    function seedItems(){
+      items = [];
+      items.push(new Item('+5 Dexterity Vest', 10, 20));
+      items.push(new Item('Aged Brie', 2, 0));
+      items.push(new Item('Elixir of the Mongoose', 5, 7));
+      items.push(new Item('Sulfuras, Hand of Ragnaros', 0, 80));
+      items.push(new Item('Sulfuras, Hand of Ragnaros', -1, 80));
+      items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20));
+      items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 10, 49));
+      items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 5, 49));
+      // this conjured item does not work properly yet
+      items.push(new Item('Conjured Mana Cake', 3, 6));
     }
   });
 </script>
