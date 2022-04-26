@@ -11,7 +11,9 @@
   $( document ).ready(function() {
 
     $('body').append('<p>Starting Gilded Rose</p>');
-
+    $('body').append('<input type="text" id="addDay" placeholder="day" /><button id="add">Add</button> <br /><br />');
+    $('body').append('<input type="text" id="addName" placeholder="name" /><input type="text" placeholder="sellin" id="addSell" /><input type="text" id="addQuality" placeholder="quality"/><button id="addItem">Add</button>');
+    
     items.push(new Item('+5 Dexterity Vest', 10, 20));
     items.push(new Item('Aged Brie', 2, 0));
     items.push(new Item('Elixir of the Mongoose', 5, 7));
@@ -23,27 +25,50 @@
     // this conjured item does not work properly yet
     items.push(new Item('Conjured Mana Cake', 3, 6));
 
-    var days = 17;
+    var days = 5;
 
-    for (var i = 0; i < days; i++) {
-      showHeaderFor(i+1);
-      showItemsFor(i);
-      update_quality();
-    }
+    iterateItem();
 
     function showHeaderFor(day) {
-      $('body').append('<p>-------- day ' + day + ' --------</p>');
+      $('body').append('<p class="item">-------- day ' + day + ' --------</p>');
     }
 
     function showItemsFor(day) {
-      $('body').append('<p>name, sellIn, quality</p>');
+      $('body').append('<p class="item">name, sellIn, quality</p>');
       for (var j = 0; j < items.length; j++) {
         var item = items[j];
-        $('body').append('<p>' + item.name + ', ' + item.sell_in + ', ' + item.quality + '</p>');
+        $('body').append('<p class="item">' + item.name + ', ' + item.sell_in + ', ' + item.quality + '</p>');
       }
-      $('body').append('<br />');
+      $('body').append('<br class="item"/>');
     }
 
+    $('#addItem').click(function() {
+      let name = $('#addName').val();
+      let sellin = $('#addSell').val();
+      let quality = $('#addQuality').val();
+      items.push({
+        name,
+        quality,
+        sell_in:sellin
+      });
+      $('.item').remove();
+      iterateItem();
+    })
+
+    $('#add').click(function() {
+      let day = $('#addDay').val();
+      days = day
+      $('.item').remove();
+      iterateItem();
+    })
+
+    function iterateItem(){
+      for (var i = 0; i < days; i++) {
+        showHeaderFor(i+1);
+        showItemsFor(i);
+        update_quality();
+      }
+    }
   });
 </script>
 
