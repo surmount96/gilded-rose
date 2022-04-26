@@ -52,7 +52,7 @@
 
     $('#add').click(function() {
       let day = $('#addDay').val();
-      if(!day || typeof day != 'number') {
+      if(!day && typeof day != 'number') {
         alert('Ensure input is a number and not empty');
         return ;
       }
