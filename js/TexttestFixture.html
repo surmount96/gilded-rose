@@ -34,19 +34,18 @@
     }
 
     $('#addItem').click(function() {
-      let name = $('#addName').val();
-      let sellin = $('#addSell').val();
-      let quality = $('#addQuality').val();
-      if(!name || !sellin || !quality) {
+      let name = $('#addName');
+      let sellin = $('#addSell');
+      let quality = $('#addQuality');
+      if(!name.val() || !sellin.val() || !quality.val()) {
         alert('Ensure input is not empty');
         return ;
       }
       seedItems()
-      items.push({
-        name,
-        quality,
-        sell_in:sellin
-      });
+      items.push(new Item(name.val(), sellin.val(),quality.val()));
+      name.val('')
+      sellin.val('');
+      quality.val('');
       $('.item').remove();
       iterateItem();
     })
