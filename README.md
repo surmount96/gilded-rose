@@ -15,8 +15,9 @@ I also took time to get myself acquainted with the codebase structure which incl
 Tackling each of the feature ;
 
 - The Quality of item is never negative
-    Holding all value constant, I had to ensure the value of quality is not less than zero by having a conditional statement that checks If the value of quality is < 0 then set it’s default to 0.
-
+`
+Holding all value constant, I had to ensure the value of quality is not less than zero by having a conditional statement that checks If the value of quality is < 0 then set it’s default to 0.
+`
 - “Aged brie” actually increases in Quality the older it gets
 ```
 In the update_quality method, with a conditional statement checks name is “Aged brie” to increase the value since it wasn’t specify how many times it should increase.
