@@ -20,16 +20,19 @@ Tackling each of the feature ;
 Holding all value constant, I had to ensure the value of quality is not less than zero by having a conditional statement that checks If the value of quality is < 0 then set it’s default to 0.
 `
 - “Aged brie” actually increases in Quality the older it gets
+
 `
 In the update_quality method, with a conditional statement checks name is “Aged brie” to increase the value since it wasn’t specify how many times it should increase.
 `
 
 - The Quality of an item is never more than 50
+
 `
 At this stage, the generality of all quality at each level irrespective of what the condition is for the item, the conditional statement ensure it never passes 50.
 `
 
 - “Sulfuras”, being a legendary item, never has to sold or decreases in Quality
+
 `
 A conditional statement is used to check “Sulfuras” in the list so as to ensure it never decreases in quality.
 `
@@ -41,9 +44,11 @@ A conditional statement is used to check “Sulfuras” in the list so as to ens
 Based on the requirement, I had to check each stages of sell in days so I can implement the condition as stated.
 `
 - We have recently signed a supplier of conjured items. This requires an update to our system:
+
 `
 This gave me an insight to create input that allows user to dynamically add item to the existing list. It also allows users to set days in which I ensured the inputs are all validated.
 `
+
 At the end, after which all features has been completed, I wrote a positivity test based on the testcases in the requirements specification. 
 
 
